@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<contacts> 
+  <linkman id="1"> 
+    <name>gg</name>  
+    <email>522858867@qq.com</email>  
+    <address>成都</address>  
+    <group>源代码教育</group> 
+  </linkman>  
+  <linkman id="2"> 
+    <name>mm</name>  
+    <email>lanyotech@qq.com</email>  
+    <address>成都</address>  
+    <group>源代码教育</group> 
+  </linkman>  
+  <linkman id="3"> 
+    <name>宫本武藏</name>  
+    <email>1234567@qq.com</email>  
+    <address>天府三街腾讯大厦A座</address>  
+    <group>王者荣耀</group> 
+  </linkman>  
+  <linkman id="4">
+    <name>宫本武藏</name>
+    <email>1234567@qq.com</email>
+    <address>天府三街腾讯大厦A座</address>
+    <group>王者荣耀</group>
+  </linkman>
+</contacts>
