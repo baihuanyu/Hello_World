@@ -1,8 +1,6 @@
 package xml.studentAbout;
 
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class StudentDaoImplTest {
     public static void main(String[] args) throws Exception {

@@ -1,6 +1,6 @@
 package day26net;
 
-import org.apache.commons.io.IOUtils;
+/*import org.apache.commons.io.IOUtils;*/
 
 import java.io.FileWriter;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ public class TestURL {
         //获取输入流
         InputStream inputStream = url.openStream();
         //获取输出流
-        FileWriter writer = new FileWriter("douban.html",true);
+        FileWriter writer = new FileWriter("douban.html", true);
         //读取文件
         /*byte [] b = new byte[1024];
         int num = 0;
@@ -23,8 +23,9 @@ public class TestURL {
         }
         inputStream.close();
         writer.close();*/
-        IOUtils.copy(inputStream,writer);
+       /* IOUtils.copy(inputStream,writer);
         inputStream.close();
         writer.close();
+    }*/
     }
 }

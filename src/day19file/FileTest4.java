@@ -18,12 +18,12 @@ import java.util.Arrays;
 public class FileTest4 {
     public static void main(String[] args) {
         //创建文件夹
-        File file = new File("/Users/shirokansakai/Desktop//test/");
+        File file = new File("/Users/shirokansakai/Desktop//test/1.txt");
 
         try {
-            file.createNewFile();
+            file.renameTo(new File("hahaha"));
             System.out.println("创建成功!");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         file.mkdirs();

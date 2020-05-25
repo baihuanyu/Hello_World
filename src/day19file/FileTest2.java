@@ -13,9 +13,9 @@ public class FileTest2 {
         File file = new File("001.text");
         //2 使用放个creatNewfile创建一个文件
         try {
-            file.createNewFile();
+            file.renameTo(new File("hahha.txt"));
             System.out.println("创建成功");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

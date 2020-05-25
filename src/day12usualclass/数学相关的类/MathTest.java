@@ -34,7 +34,7 @@ public class MathTest {
         /**舍一*/
         System.out.println("舍一"+Math.floor(2.5));//2
         /**四舍五入*/
-        System.out.println("四舍五入"+Math.round(2.5));//3
+        System.out.println("四舍五入"+Math.round(-2.5));//3
         /**最大值*/
         System.out.println("最大值"+Math.max(2.1,3.1));
         /**最小值*/

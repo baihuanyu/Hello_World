@@ -1,8 +1,6 @@
 package xml;
 
-import org.dom4j.Document;
-import org.dom4j.DocumentException;
-import org.dom4j.Element;
+import org.dom4j.*;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.SAXWriter;
@@ -12,6 +10,7 @@ import javax.sql.rowset.spi.XmlWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -30,6 +29,11 @@ public class XmlTest {
         List<Element> list = root.elements("linkman");
         //获取第一个linkman
         Element linkman = list.get(0);
+        List elements = linkman.elements();
+        Element name = DocumentHelper.createElement("name");
+        name.setText("我是刚创建的");
+        elements.add(0,name);
+
         //获取里面的email标签
         Element email = linkman.element("email");
         //获取标签里面的内容
@@ -49,7 +53,7 @@ public class XmlTest {
         //添加一个linkman
         Element addlink = root.addElement("linkman");
         //增加联系人属性
-        addlink.addAttribute("id","4");
+        addlink.addAttribute("id","5");
         //增加联系人的信息
         addlink.addElement("name").addText("宫本武藏");
         addlink.addElement("email").addText("1234567@qq.com");
@@ -60,8 +64,7 @@ public class XmlTest {
         *  通过父级去删除子级
         *
         * */
-        Element linkd = list.get(3);
-        linkd.getParent().remove(linkd);
+
 
 
         //获取文件写入流
