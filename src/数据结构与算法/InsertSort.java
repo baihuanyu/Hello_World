@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 /**
- *  插入排序
+ *  插入排序 默认前面是有序的 然后拿后面的和前面的比较移动位置
  * @author baihuanyu bwx966955
  * @date 2020/11/11 19:05
  */
