@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+规则版本号：V1.4(2008-09-27)
+去掉规则HideUtilityClassConstructor
+规则WhitespaceAround，增加属性
+
+
+规则版本号：V1.3(2008-09-18)
+增加规则(共22个)：AnonInnerLength、MethodParamPad、NoWhitespaceAfter、NoWhitespaceBefore、OperatorWrap、ParenPad、
+TypecastParenPad、TabCharacter、WhitespaceAround、HiddenField、MagicNumber、RedundantThrows、NestedTryDepth、
+IllegalThrows、DeclarationOrder、UnnecessaryParentheses、VisibilityModifier、HideUtilityClassConstructor、
+ThrowsCount、BooleanExpressionComplexity、UncommentedMain、Indentation
+
+规则版本号：V1.2（2008-08-19）
+修改了规则JavadocStyle，对html标签不作是否关闭的检查，原因是对JDK1.5的泛型类会误认为是html标签
+
+规则版本号：V1.1（2008-08-13）
+常量命名（ConstantName）对日志对象可以命名为log或logger，不需要全部大写
+
+规则版本号：V1.0（2008-08-11）
+本规则重在编程规范，请与PMD、FindBugs结合使用
+-->
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+
+    <!-- 配置过滤文件 ,对不进行check的文件进行过滤-->
+    <!--<module name="SuppressionFilter">-->
+        <!--<property name="file" value="../../rules/checkstyle_suppressions.xml"/>-->
+    <!--</module>-->
+
+    <module name="SuppressWarningsFilter"/>
+    <module name="FileTabCharacter"/>
+    <!--<module name="PackageHtml"/>-->
+    <module name="TreeWalker">
+        <module name="SuppressWarningsHolder"/>
+        <!--
+        Naming Conventions
+        -->
+        <module name="ConstantName">
+            <property name="format" value="(^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$)|(^log$)|(^logger$)"/>
+        </module>
+        <module name="LocalFinalVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="LocalVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-zA-Z_][a-zA-Z0-9_]*)*$"/>
+        </module>
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="StaticVariableName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+        </module>
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+        </module>
+
+        <!--*********************import：import检查***************************-->
+
+        <!--<module name="AvoidStarImport"/>--><!-- 不能import*的方式引入包 -->
+        <module name="RedundantImport"/><!-- 不能重复引入 -->
+        <module name="UnusedImports"/><!-- 不能有无用的import -->
+
+        <!--*****************Size Violations：长度检查*********************-->
+
+        <!--<module name="LineLength">
+            <property name="max" value="350"/>
+        </module>-->
+        <module name="AnonInnerLength"><!-- 检查内部类，最多60行 -->
+            <property name="max" value="90"/>
+        </module>
+
+        <!--********************Whitespace：空格检查*****************-->
+
+        <!-- 方法或构造函数调用声明时，不能和左括号之间有空格 -->
+        <module name="MethodParamPad"/>
+
+        <!-- ~, \-\-（减减前缀）, ++（加加前缀）, .（点）,！,-（负号），+(正号)这些符号背后不允许接空格。 -->
+        <module name="NoWhitespaceAfter"/>
+
+        <!-- ；, .（点）, \-\-（后缀）, ++（后缀）这些符合前面不允许有空格 -->
+        <module name="NoWhitespaceBefore"/>
+
+        <!-- 一行写不下换行时操作符放行首 -->
+        <module name="OperatorWrap"/>
+
+        <!-- 左圆括号右侧不能有空格，右圆括号左侧不能有空格，如不允许set( a.getString() ) -->
+        <module name="ParenPad"/>
+
+        <!-- 类型转换原则检查，不允许有空格，如 String s = ( String )s1; -->
+        <module name="TypecastParenPad"/>
+        <!-- <module name="TabCharacter"/> -->
+
+        <!-- 二元操作符前后需加空格。如比较操作符, 赋值操作符"="、 "+="，算术操作符"+"、"%"，逻辑操作符"&&"、"&"，位域操作符"<<"、"^"等 -->
+        <module name="WhitespaceAround">
+            <property name="tokens"
+                      value="COLON,NOT_EQUAL,QUESTION,DIV,DIV_ASSIGN,BXOR,BXOR_ASSIGN,MINUS,LCURLY,RCURLY,STAR,STAR_ASSIGN,TYPE_EXTENSION_AND,BAND,LAND,BAND_ASSIGN,MOD,MOD_ASSIGN,PLUS,PLUS_ASSIGN,LT,SL,SL_ASSIGN,LE,ASSIGN,MINUS_ASSIGN,EQUAL,GT,GE,SR,SR_ASSIGN,BSR,BSR_ASSIGN,BOR,BOR_ASSIGN,LOR,LITERAL_ASSERT,LITERAL_ASSERT,LITERAL_CATCH,LITERAL_DO,LITERAL_ELSE,LITERAL_FINALLY,LITERAL_FOR,LITERAL_IF,LITERAL_RETURN,SLIST,LITERAL_SYNCHRONIZED,LITERAL_TRY,LITERAL_WHILE"/>
+        </module>
+
+        <!--******************Modifiers：修饰符检查*************-->
+
+        <!-- 检查修饰符顺序，正确的是1.public 2.protected 3.private 4.abstract 5.static 6.final 7.transient 8.volatile 9.synchronized 10.native 11.strictfp -->
+        <module name="ModifierOrder"/>
+
+        <!--****************Block Checks:关于{}的检查*************-->
+
+        <module name="EmptyBlock"/><!-- 不允许有空块，如{} -->
+        <module name="LeftCurly"/>
+        <!--当语句块中只有一行语句时，允许省略{}——by fwx541407-->
+        <!--<module name="NeedBraces"/>&lt;!&ndash; if/eles while/do do/while for等要有{} &ndash;&gt;-->
+        <module name="RightCurly">
+            <!--<property name="option" value="alone"/>-->
+        </module>
+        <module name="AvoidNestedBlocks"><!-- 不允许内嵌{} -->
+            <property name="allowInSwitchCase" value="true"/><!-- switch语句内允许 -->
+        </module>
+
+        <!--*******************Coding：关于代码的检查********** -->
+
+        <module name="HiddenField"><!-- 检查局部变量和参数屏蔽了类的成员 -->
+            <property name="ignoreConstructorParameter" value="true"/><!-- 忽略对构造函数的检查 -->
+            <property name="setterCanReturnItsClass" value="true"/><!--Allow to expand the definition of a setter method to include methods that return the class' instance.-->
+            <property name="ignoreSetter" value="true"/><!-- 忽略对set方法的检查 -->
+            <property name="ignoreAbstractMethods" value="true"/><!-- 忽略对抽象方法的检查 -->
+        </module>
+        <module name="MagicNumber"><!-- 魔鬼数字 -->
+            <property name="ignoreNumbers" value="-1, 0, 1"/><!-- 对-1/0/1不检查 -->
+        </module>
+        <!-- <module name="RedundantThrows">
+            <property name="logLoadErrors" value="true"/>
+            <property name="suppressLoadErrors" value="true"/>
+        </module> -->
+        <module name="NestedTryDepth"><!-- 内嵌的CheckStyle最大深度为2 -->
+            <property name="max" value="2"/>
+        </module>
+        <module name="IllegalThrows"/>
+        <module name="DeclarationOrder"/><!-- 检查类、接口内声明顺序： 类成员变量(public/protected/package(default friendly)/private)/实例变量(顺序同变量)）/构造函数/共有方法/私有方法-->
+        <module name="UnnecessaryParentheses"/><!-- 不能使用不必要的圆括号 -->
+
+        <!--
+        Class Design
+        -->
+        <!-- <module name="VisibilityModifier"/>  -->
+        <!--<module name="HideUtilityClassConstructor"/>    -->
+        <module name="ThrowsCount"><!-- 同一个方法声明时最多可以抛出5个异常 -->
+            <property name="max" value="5"/>
+        </module>
+
+
+        <!--****************Metrics：度量相关检查******************-->
+
+        <module name="BooleanExpressionComplexity"><!-- 布尔运算符在一条语句中允许出现的最大数目不超过5 -->
+            <property name="max" value="5"/>
+        </module>
+
+        <!--
+        Miscellaneous
+        -->
+        <module name="Indentation">
+            <property name="lineWrappingIndentation" value="8"/>
+        </module>
+        <!--<module name="UncommentedMain"/>-->
+
+    </module>
+</module>
