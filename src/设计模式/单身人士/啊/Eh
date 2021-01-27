@@ -1,0 +1,18 @@
+package com.demo;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+/**
+ * @author baihuanyu bwx966955
+ * @date 2021/1/26 17:07
+ */
+public class DateTest {
+    public static void main(String[] args) {
+        dateTran(LocalDateTime.now());
+    }
+    public static void dateTran(LocalDateTime time){
+        LocalDate date = time.toLocalDate();
+        System.out.println(date.lengthOfYear());
+    }
+}
