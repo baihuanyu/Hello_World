@@ -1,0 +1,27 @@
+package com.demo.designPattern.builder;
+
+/**
+ * @author baihuanyu bwx966955
+ * @date 2021/2/19 15:20
+ *  产品
+ */
+public class House {
+    private String name;
+    private String wall;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getWall() {
+        return wall;
+    }
+
+    public void setWall(String wall) {
+        this.wall = wall;
+    }
+}
