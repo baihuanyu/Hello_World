@@ -1,4 +1,4 @@
-package com.demo.designPattern.singleton.lh;
+package 设计模式.单身人士.DCL;
 
 /**
  *  LH

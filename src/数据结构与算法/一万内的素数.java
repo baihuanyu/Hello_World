@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,6 +19,7 @@ public class 一万内的素数 {
     static volatile int num = 12;
     static volatile List<Integer> list;
     public static void main(String[] args) throws InterruptedException {
+        CyclicBarrier barrier = new CyclicBarrier(4);
         list = new CopyOnWriteArrayList<>(Arrays.asList(2, 3, 5, 7));
         ExecutorService pool = Executors.newFixedThreadPool(4);
         System.out.println(System.currentTimeMillis());
